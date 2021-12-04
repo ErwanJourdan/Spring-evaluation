@@ -20,6 +20,11 @@ public class CollaboratorController {
         this.jpaTaskRepository = jpaTaskRepository;
     }
 
+    @GetMapping("/all")
+    public List<Collaborator> getAllCollab(){
+        return jpaCollaboratorRepository.findAll();
+    }
+
 
     @PostMapping
     public Collaborator createCollaborator (@RequestBody Collaborator collaborator){

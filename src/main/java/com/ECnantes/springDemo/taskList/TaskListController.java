@@ -20,6 +20,11 @@ public class TaskListController {
         this.jpaTaskListRepository = jpaTaskListRepository;
     }
 
+    @GetMapping("/all")
+    public List<TaskList> getAllTaskLists(){
+        return jpaTaskListRepository.findAll();
+    }
+
     @PostMapping("/create")
     public TaskList createTaskList (@RequestBody TaskList taskList){
         return jpaTaskListRepository.save(taskList);

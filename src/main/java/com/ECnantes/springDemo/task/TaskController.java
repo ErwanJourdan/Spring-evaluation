@@ -3,6 +3,7 @@ package com.ECnantes.springDemo.task;
 
 
 
+import com.ECnantes.springDemo.models.Collaborator;
 import com.ECnantes.springDemo.models.Task;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -69,6 +70,11 @@ public class TaskController {
     public String deleteTaskById(@PathVariable("id") Integer id){
             jpaTaskRepository.deleteById(id);
             return ("Votre tâche id: " + id + " a été supprimé");
+    }
+
+    @GetMapping("/all")
+    public List<Task> getAllTasks(){
+        return jpaTaskRepository.findAll();
     }
 
     @GetMapping("/get-by-task-list/{id}")
